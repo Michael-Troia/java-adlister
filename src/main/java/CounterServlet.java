@@ -13,8 +13,13 @@ public class CounterServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         number++;
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
-        out.println("number: " + number);
+        try {
+            response.setContentType("text/html");
+            PrintWriter out = response.getWriter();
+            out.println("number: " + number);
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+
     }
 }
